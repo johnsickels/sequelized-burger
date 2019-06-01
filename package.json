@@ -1,25 +1,26 @@
 {
-  "name": "eat-da-burger",
+  "name": "sequelized-burger",
   "version": "1.0.0",
-  "description": "Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.",
-  "main": "index.js",
+  "description": "### Overview",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnsickels/eat-da-burger.git"
+    "url": "git+https://github.com/johnsickels/sequelized-burger.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/johnsickels/eat-da-burger/issues"
+    "url": "https://github.com/johnsickels/sequelized-burger/issues"
   },
-  "homepage": "https://github.com/johnsickels/eat-da-burger#readme",
+  "homepage": "https://github.com/johnsickels/sequelized-burger#readme",
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
-    "mysql": "^2.17.1",
-    "nodemon": "^1.19.1"
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.7"
   }
 }
