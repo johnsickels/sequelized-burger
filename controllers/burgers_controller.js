@@ -9,53 +9,43 @@ var db = require("../models");
 var router = express.Router();
 
 router.get("/", function (req, res) {
-    db.Burger.findAll().then(function(dbBurger) {
+    db.Burger.findAll().then(function (dbBurger) {
         var hbsObject = {
             burgers: dbBurger
         };
         console.log(hbsObject);
         res.render("index", hbsObject);
-        
-    })
-    // burger.selectAll(function (data) {
-    //     var hbsObject = {
-    //         burgers: data
-    //     };
-    //     console.log(hbsObject);
-    //     res.render("index", hbsObject);
-    // });
+
+    });
 
     router.post("/api/burgers", function (req, res) {
-        // burger.insertOne(req.body.name, function (result) {
-            
-        //     console.log("Created");
-        //     res.json({ id: result.insertId });
-            
-        // });
+        db.Burger.create({
+            burger_name: req.body.name
+        }).then(function (dbBurger) {
+            res.json({ id: dbBurger.insertId });
+        })
     });
 
     router.put("/api/burgers/:id", function (req, res) {
-        var condition = "id = " + req.params.id;
-
-        console.log("condition", condition);
-        // burger.updateOne(req.params.id, function (result) {
-        //     console.log("devoured");
-        //     res.json({ id: result.insertId });
-            
-            
-        // });
+        db.Burger.update({
+            devoured: 1
+        }, {
+                where: {
+                    id: req.params.id
+                }
+            }).then(function (dbBurger) {
+                res.json({ id: dbBurger.insertId });
+            })
     });
 
     router.delete("/api/burgers/:id", function (req, res) {
-        var condition = "id = " + req.params.id;
-
-        console.log("condition", condition);
-        // burger.deleteOne(req.params.id, function (result) {
-        //     console.log("deleted");
-        //     res.json({ id: result.insertId });
-            
-            
-        // });
+        db.Burger.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (dbBurger) {
+            res.json({ id: dbBurger.insertId });
+        })
     });
 });
 
