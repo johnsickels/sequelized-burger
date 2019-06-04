@@ -16,12 +16,37 @@ router.get("/", function (req, res) {
         res.render("index", hbsObject);
     });
 
-    router.post("/api/burgers", function (req, res) {
-        db.Burger.create({
-            burger_name: req.body.name
-        }).then(function (dbBurger) {
-            res.json({ id: dbBurger.insertId });
+    router.post("/api/chefs", function (req, res) {
+        db.Chef.create({
+            chef_name: req.body.chef
+        }).then(function (dbChef) {
+
+            res.json({ id:dbChef.insertId });
+            console.log("chef added");
         })
+    });
+
+    router.post("/api/burgers", function (req, res) {
+        console.log("post");
+        
+        router.get("/api/chefs", function(req, res) {
+            console.log("get");
+            
+            db.Chef.findOne({
+                where: {
+                    chef_name: $("#chef")
+                }
+            }).then(function (data) {
+                console.log("Nested get for chef ID here: " + data);
+                
+            })
+        })
+        // db.Burger.create({
+        //     burger_name: req.body.name,
+        //     ChefId: 1
+        // }).then(function (dbBurger) {
+        //     res.json({ id: dbBurger.insertId });
+        // })
     });
 
     router.put("/api/burgers/:id", function (req, res) {

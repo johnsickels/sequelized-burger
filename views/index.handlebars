@@ -13,7 +13,10 @@
                     <div class="form-group">
                         <label for="burger">Burger Name:</label>
                         <input type="text" id="burger" name="name">
+                        <label for="burger">Chef Name:</label>
+                        <input type="text" id="chef" name="name">
                     </div>
+                    
 
                     <button type="submit">Add Burger</button>
                 </form>
@@ -35,6 +38,7 @@
             <li>
                 {{id}}.
                 {{burger_name}}
+                Made by {{ChefId}}
                 <button class="change-devoured" data-id="{{id}}" data-devoured="{{devoured}}">
                     Devour It!
                 </button>
