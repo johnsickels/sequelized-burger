@@ -34,16 +34,18 @@
 
         <ul>
             {{#each burgers}}
+            {{#with Chef}}
             {{#unless devoured}}
             <li>
                 {{id}}.
                 {{burger_name}}
-                Made by {{ChefId}}
+                Made by {{chef_name}}
                 <button class="change-devoured" data-id="{{id}}" data-devoured="{{devoured}}">
                     Devour It!
                 </button>
             </li>
             {{/unless}}
+            {{/with}}
             {{/each}}
         </ul>
     </div>

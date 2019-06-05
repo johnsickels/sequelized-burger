@@ -44,20 +44,18 @@ $(function () {
     event.preventDefault();
     if ($("#burger").val() !== "") {
       var newBurger = {
-        name: $("#burger").val().trim()
-      };
-      var newChef = {
+        name: $("#burger").val().trim(),
         chef: $("#chef").val().trim()
       };
 
-      $.ajax("/api/chefs", {
-        type: "POST",
-        data: newChef
-      }).then(
-        function () {
-          console.log("chef added");
-        }
-      );
+      // $.ajax("/api/chefs", {
+      //   type: "POST",
+      //   data: newChef
+      // }).then(
+      //   function () {
+      //     console.log("chef added");
+      //   }
+      // );
 
       // Send the POST request.
       $.ajax("/api/burgers", {
