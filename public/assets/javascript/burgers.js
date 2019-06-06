@@ -23,7 +23,6 @@ $(function () {
     var id = $(this).data("id");
     console.log("onclick id=" + id);
 
-
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
       type: "DELETE",
@@ -47,15 +46,6 @@ $(function () {
         name: $("#burger").val().trim(),
         chef: $("#chef").val().trim()
       };
-
-      // $.ajax("/api/chefs", {
-      //   type: "POST",
-      //   data: newChef
-      // }).then(
-      //   function () {
-      //     console.log("chef added");
-      //   }
-      // );
 
       // Send the POST request.
       $.ajax("/api/burgers", {

@@ -54,8 +54,8 @@ In this assignment, I am going to Sequelize the `Burger` app I made last unit. I
 
 ### Sequelize Da Burger Links
 
-[Eat-Da-Burger Heroku](https://eat-da-burger-sickels.herokuapp.com/)
+[Sequelize-Da-Burger Heroku](https://eat-da-burger-sickels.herokuapp.com/)
 
-![Eat-Da-Burger](public/assets/img/user-thumb.png)
+![Sequelize-Da-Burger](public/assets/img/user-thumb.png)
 
 **Thanks for stopping by!**
