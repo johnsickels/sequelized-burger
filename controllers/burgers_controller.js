@@ -15,7 +15,6 @@ router.get("/", function (req, res) {
     });
 
     router.post("/api/burgers", function (req, res) {
-        console.log("Nested post");
         console.log(req.body.name);
         console.table(req.body);
         

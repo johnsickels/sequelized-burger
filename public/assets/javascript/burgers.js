@@ -1,5 +1,8 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
+
+  // var chefSelect = $("#chefSelect");
+
   $(".change-devoured").on("click", function (event) {
     var id = $(this).data("id");
     var devouredState = {
@@ -38,13 +41,16 @@ $(function () {
     );
   });
 
+  // // Getting the chefs, and their burgers
+  // getChefs();
+
   $(".create-form").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     if ($("#burger").val() !== "") {
       var newBurger = {
         name: $("#burger").val().trim(),
-        chef: $("#chef").val().trim()
+        chef: $("#chef").val().trim() || chefSelect.val()
       };
 
       // Send the POST request.
@@ -62,4 +68,32 @@ $(function () {
       return false;
     }
   });
+
+  // function getChefs() {
+  //   $.get("/api/burgers", renderChefList);
+  // }
+
+  // function renderChefList(data) {
+  //   // if (!data.length) {
+  //   //   window.location.href = "/authors";
+  //   // }
+  //   $(".hidden").removeClass("hidden");
+  //   var rowsToAdd = [];
+  //   for (var i = 0; i < data.length; i++) {
+  //     rowsToAdd.push(createChefRow(data[i]));
+  //   }
+  //   chefSelect.empty();
+  //   console.log(rowsToAdd);
+  //   console.log(chefSelect);
+  //   chefSelect.append(rowsToAdd);
+  //   chefSelect.val(authorId);
+  // }
+
+  // // Creates the author options in the dropdown
+  // function createChefRow(chef) {
+  //   var listOption = $("<option>");
+  //   listOption.attr("value", chef.id);
+  //   listOption.text(chef.name);
+  //   return listOption;
+  // }
 });
