@@ -1,7 +1,7 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
 
-  // var chefSelect = $("#chefSelect");
+  var chefSelect = $("#chefSelect");
 
   $(".change-devoured").on("click", function (event) {
     var id = $(this).data("id");
@@ -69,31 +69,46 @@ $(function () {
     }
   });
 
-  // function getChefs() {
-  //   $.get("/api/burgers", renderChefList);
-  // }
+  getChefs();
 
-  // function renderChefList(data) {
-  //   // if (!data.length) {
-  //   //   window.location.href = "/authors";
-  //   // }
-  //   $(".hidden").removeClass("hidden");
-  //   var rowsToAdd = [];
-  //   for (var i = 0; i < data.length; i++) {
-  //     rowsToAdd.push(createChefRow(data[i]));
-  //   }
-  //   chefSelect.empty();
-  //   console.log(rowsToAdd);
-  //   console.log(chefSelect);
-  //   chefSelect.append(rowsToAdd);
-  //   chefSelect.val(authorId);
-  // }
+  function getChefs() {
+    $.get("/api/chefs", renderChefList);
+  }
 
-  // // Creates the author options in the dropdown
-  // function createChefRow(chef) {
-  //   var listOption = $("<option>");
-  //   listOption.attr("value", chef.id);
-  //   listOption.text(chef.name);
-  //   return listOption;
-  // }
+  $.get("/api/chefs", function (data) {
+
+    for (var i = 0; i > data.length; i++) {
+      console.log(data[i])
+
+     
+      
+
+
+    }
+
+  })
+
+  function renderChefList(data) {
+    if (!data.length) {
+      window.location.href = "/chefs";
+    }
+    $(".hidden").removeClass("hidden");
+    var rowsToAdd = [];
+    for (var i = 0; i < data.length; i++) {
+      rowsToAdd.push(createChefRow(data[i]));
+    }
+    chefSelect.empty();
+    console.log(rowsToAdd);
+    console.log(chefSelect);
+    chefSelect.append(rowsToAdd);
+    chefSelect.val(1);
+  }
+
+  // Creates the author options in the dropdown
+  function createChefRow(chef) {
+    var listOption = $("<option>");
+    listOption.attr("value", chef.id);
+    listOption.text(chef.name);
+    return listOption;
+  }
 });

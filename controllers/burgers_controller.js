@@ -53,5 +53,24 @@ router.get("/", function (req, res) {
     });
 });
 
+router.get("/api/burgers", function(req,res) {
+    db.Burger.findAll({
+        include: [db.Chef]
+    }).then(function (dbBurger) {
+        var hbsObject = {
+            burgers: dbBurger
+        };
+        res.json(hbsObject);
+    });
+});
+
+router.get("/api/chefs", function(req,res) {
+    db.Chef.findAll({
+        include: [db.Burger]
+    }).then(function (dbChef) {
+        res.json(dbChef);
+    });
+});
+
 // Export routes for server.js to use.
 module.exports = router;
